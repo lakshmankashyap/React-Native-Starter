@@ -1,10 +1,29 @@
 import React from 'react';
-import Test from "./Components/Test";
+import SplashScreen from "./Components/Screens/SplashScreen";
+import HomeScreen from "./Components/Screens/HomeScreen";
 
-class App extends React.Component {
+import LoginScreen from "./Components/Screens/Auth/LoginScreen";
+import RegisterScreen from "./Components/Screens/Auth/RegisterScreen";
+
+import { createStackNavigator, createSwitchNavigator, createAppContainer,createDrawerNavigator } from "react-navigation";
+
+const appStackNavigator = createStackNavigator({HomeScreen})
+
+const appDrawerNavigator = createDrawerNavigator({HomeScreen:appStackNavigator})
+
+const AppNavigator = createSwitchNavigator(
+  {
+    SplashScreen,
+    HomeScreen:appDrawerNavigator,
+    LoginScreen,
+    RegisterScreen
+  }
+);
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends React.Component {
   render() {
-    return <Test/>;
+    return <AppContainer/>;
   }
 }
-
-export default App

@@ -2,7 +2,6 @@ import * as actions from "../Actions/type";
 
 const initSate = {
     user: null,
-    name:"Azeem",
 };
 
 const AuthReducer = (state = initSate, action) => {

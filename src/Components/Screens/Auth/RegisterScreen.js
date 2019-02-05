@@ -1,13 +1,11 @@
 import React from 'react';
-import { connect } from "react-redux";
 import { StyleSheet, Text, View } from 'react-native';
 
-class Test extends React.Component {
+class RegisterScreen extends React.Component {
   render() {
-    const {name} = this.props;
     return (
       <View style={styles.container}>
-        <Text>Welcome To React native {name}</Text>
+        <Text>RegisterScreen</Text>
       </View>
     );
   }
@@ -23,13 +21,5 @@ const styles = StyleSheet.create({
 
 });
 
-const mapStateToProps = state => {
-  return {
-    name: state.AuthReducer.name
-  };
-};
 
-export default connect(
-  mapStateToProps,
-  null
-)(Test);
+export default RegisterScreen
